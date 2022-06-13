@@ -1,6 +1,5 @@
 from flask import Flask,render_template,request
-import getpass
-import sys
+import getpassK
 import telnetlib
 from flask_cors import CORS
 
@@ -27,10 +26,10 @@ def router1_name():
     tn.write(password.encode("ascii") + b"\n")
 
     tn.write(b"conf t\n")
-    tn.write(b"hostname {}\n".format(args.get("name")))
+    tn.write(bytes("hostname {}\n".format(args.get("name")), encoding="utf8"))
     tn.write(b"exit\n")
 
-    print(tn.read_all())
+    tn.read_all()
 
 
     return {"result": args.get("name")}
@@ -54,7 +53,7 @@ def router1_config():
 
     tn.write(b"exit\n")
 
-    print(tn.read_all())
+    tn.read_all()
 
     return {"result": "ROUTER1 is Configured"} 
 
@@ -67,6 +66,7 @@ def router1_clear():
 
     tn = telnetlib.Telnet(HOST)
 
+
     tn.write(user.encode("ascii") + b"\n")
     tn.write(password.encode("ascii") + b"\n")
 
@@ -75,7 +75,7 @@ def router1_clear():
 
     tn.write(b"exit\n")
 
-    print(tn.read_all())
+    tn.read_all()
 
     return {"result": "ROUTER1 RIP Configuration is Cleared"}               
 
@@ -83,25 +83,24 @@ def router1_clear():
 
 @app.route("/router2_name", methods=['GET'])
 def router2_name():
+    args = request.args
 
-            args = request.args
+    HOST = "192.168.56.20"
+    user = "user"
+    password = "pass"
 
-            HOST = "192.168.56.20"
-            user = "user"
-            password = "pass"
+    tn = telnetlib.Telnet(HOST)
 
-            tn = telnetlib.Telnet(HOST)
+    tn.write(user.encode("ascii") + b"\n")
+    tn.write(password.encode("ascii") + b"\n")
 
-            tn.write(user.encode("ascii") + b"\n")
-            tn.write(password.encode("ascii") + b"\n")
+    tn.write(b"conf t\n")
+    tn.write(bytes("hostname {}\n".format(args.get("name")), encoding="utf8"))
+    tn.write(b"exit\n")
 
-            tn.write(b"conf t\n")
-            tn.write(b"hostname {}\n".format(args.get("name")))
-            tn.write(b"exit\n")
+    tn.read_all()
 
-            print(tn.read_all())
-
-            return {"result": args.get("name")}
+    return {"result": args.get("name")}
 
 @app.route("/router2_config")
 def router2_config():
@@ -122,7 +121,7 @@ def router2_config():
 
     tn.write(b"exit\n")
 
-    print(tn.read_all())
+    tn.read_all()
 
     return {"result": "ROUTER2 is Configured"} 
 
@@ -143,7 +142,7 @@ def router2_clear():
 
     tn.write(b"exit\n")
 
-    print(tn.read_all())
+    tn.read_all()
 
     return {"result": "ROUTER2 RIP Configuration is Cleared"}                                   
 

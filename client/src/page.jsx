@@ -40,7 +40,6 @@ export default function Page() {
     // };
 
     const handleRouter1Name = (e) => {
-        e.preventDefault()
         fetch(`http://localhost:8080/router1_name?name=${R1Name}`)
             .then(
                 res => res.json()
@@ -80,8 +79,7 @@ export default function Page() {
     }
 
     const handleRouter2Name = (e) => {
-        e.preventDefault()
-        fetch(`http://localhost:8080/router1_name?name=${R2Name}`)
+        fetch(`http://localhost:8080/router2_name?name=${R2Name}`)
             .then(
                 res => res.json()
             ).then(
