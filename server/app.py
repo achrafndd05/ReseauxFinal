@@ -70,7 +70,37 @@ def router1_config():
 
             # print(tn.read_all())
 
-            return {"result": "ROUTER1 CONFIG!!!!!!!"}          
+            return {"result": "ROUTER1 is Configured"} 
+
+@app.route("/router1_clear")
+def router1_clear():
+
+            # output = request.form.to_dict()
+            # print(output)
+            # name = output["name"]
+    
+            # HOST = "192.168.56.10"
+            # user = input("Enter votre tlnet username:")
+            # password = getpass.getpass()
+
+            # tn = telnetlib.Telnet(HOST)
+
+            # tn.read_until(b"Username")
+            # tn.write(user.encode("ascii") + b"\n")
+            # if password:
+            #     tn.read_until(b"Password", timeout=None)
+            #     tn.write(password.encode("ascii") + b"\n")
+
+
+            # tn.write(b"enable\n")
+            # tn.write(b"conf t\n")
+            # tn.write(b"hostname {}\n".format(name))
+            # tn.write(b"exit\n")
+
+            # print(tn.read_all())
+
+            return {"result": "ROUTER1 RIP Configuration is Cleared"}               
+
 
 
 @app.route("/router2_name", methods=['GET'])
@@ -127,7 +157,36 @@ def router2_config():
 
             # print(tn.read_all())
 
-            return {"result": "ROUTER2 CONFIG!!!!!!!"}                      
+            return {"result": "ROUTER2 is Configured"} 
+
+@app.route("/router2_clear")
+def router2_clear():
+
+            # output = request.form.to_dict()
+            # print(output)
+            # name = output["name"]
+    
+            # HOST = "192.168.56.10"
+            # user = input("Enter votre tlnet username:")
+            # password = getpass.getpass()
+
+            # tn = telnetlib.Telnet(HOST)
+
+            # tn.read_until(b"Username")
+            # tn.write(user.encode("ascii") + b"\n")
+            # if password:
+            #     tn.read_until(b"Password", timeout=None)
+            #     tn.write(password.encode("ascii") + b"\n")
+
+
+            # tn.write(b"enable\n")
+            # tn.write(b"conf t\n")
+            # tn.write(b"hostname {}\n".format(name))
+            # tn.write(b"exit\n")
+
+            # print(tn.read_all())
+
+            return {"result": "ROUTER2 RIP Configuration is Cleared"}                                   
 
     
         

@@ -67,6 +67,18 @@ export default function Page() {
     }
 
 
+    const clearRipRouter1 = (e) => {
+        e.preventDefault()
+        fetch(`http://localhost:8080/router1_clear`)
+            .then(
+                res => res.json()
+            ).then(
+                data => {
+                    console.log(data.result)
+                }
+            )
+    }
+
     const handleRouter2Name = (e) => {
         e.preventDefault()
         fetch(`http://localhost:8080/router1_name?name=${R2Name}`)
@@ -92,6 +104,18 @@ export default function Page() {
                 }
             )
 
+    }
+
+    const clearRipRouter2 = (e) => {
+        e.preventDefault()
+        fetch(`http://localhost:8080/router2_clear`)
+            .then(
+                res => res.json()
+            ).then(
+                data => {
+                    console.log(data.result)
+                }
+            )
     }
 
     return (
@@ -152,6 +176,14 @@ export default function Page() {
                             marginTop: 2
                         }}
                             variant="outlined" className="buttonR1" onClick={(e) => handleRouter1Config(e)} >Configurer Rip Router 1</Button>
+
+
+
+
+                        <Button sx={{
+                            marginTop: 2
+                        }}
+                            variant="outlined" className="buttonR1" onClick={(e) => clearRipRouter1(e)} >Clear Rip Router 1</Button>
                     </div>
                     {/*
                     R2 Router
@@ -206,6 +238,13 @@ export default function Page() {
                                 marginTop: 2
                             }}
                             variant="outlined" className="buttonR1" onClick={(e) => handleRouter2Config(e)} >Configurer Rip Router 2</Button>
+
+
+                        <Button sx={{
+                            marginTop: 2
+                        }}
+                            variant="outlined" className="buttonR1" onClick={(e) => clearRipRouter2(e)}  >Clear Rip Router 2</Button>
+
                     </div>
                 </div>
                 <div className="imageplace">
