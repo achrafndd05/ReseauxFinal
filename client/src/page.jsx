@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import './App.css'
-import Topology from './topology.webp'
+import Topology from './topology.PNG'
 
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
